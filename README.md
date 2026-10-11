@@ -8,8 +8,8 @@ Sitio estático de **Kairós** — *Marcas que crecen, momentos que cuentan.*
 - `vercel.json` — configuración de Vercel (URLs limpias y caché de imágenes).
 
 ## Pendientes antes de publicar
-- Reemplazar `https://wa.me/` por `https://wa.me/593XXXXXXXXX` (tu número, sin `+` ni espacios).
-- Completar `[TU NÚMERO DE WHATSAPP]` y `[TU CORREO]`.
+- ~~Número de WhatsApp~~ (listo: 098 298 1089).
+- Completar `[TU CORREO]`.
 - Enlazar Instagram, TikTok y Facebook en el pie de página.
 - Sustituir los espacios `[FOTO DE PROYECTO]` del portafolio por imágenes reales.
 
