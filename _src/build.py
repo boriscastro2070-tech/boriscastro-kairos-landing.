@@ -41,8 +41,25 @@ def greca():
             '<path d="M1 19V1h18v16H7V7h7v5M25 19V1h18v16H31V7h7v5M49 19V1h18v16H55V7h7v5M73 19V1h18v16H79V7h7v5" '
             'fill="none" stroke="currentColor" stroke-width="2"></path></svg>')
 
-def foto(forma, que, oscuro=False):
-    """Marco claramente identificado para una foto real que aún no existe."""
+# ---------- Fotos reales ----------
+# _src/fotos.json asigna una foto a cada espacio: {"portada": {"archivo": "x.jpg", "alt": "…", "posicion": "50% 40%"}}
+# _src/optimizar.py convierte el original de _src/fotos-originales/ en assets/fotos/<clave>-800.webp y -1600.webp.
+import json
+_FOTOS_JSON = os.path.join(RAIZ, "_src", "fotos.json")
+FOTOS = json.load(open(_FOTOS_JSON, encoding="utf-8")) if os.path.exists(_FOTOS_JSON) else {}
+TAMANOS = {"retrato": "(max-width: 820px) 92vw, 44vw", "alta": "(max-width: 820px) 92vw, 40vw",
+           "cuadrada": "(max-width: 820px) 92vw, 40vw", "apaisada": "(max-width: 820px) 92vw, 46vw"}
+
+def foto(forma, que, clave=None, prioridad=False):
+    """Muestra la foto real asignada a `clave`; si no existe, un marco «Foto pendiente» claramente identificado."""
+    datos = FOTOS.get(clave) if clave else None
+    if datos and os.path.exists(os.path.join(RAIZ, "assets", "fotos", f"{clave}-1600.webp")):
+        w, h = datos.get("ancho", 1600), datos.get("alto", 1200)
+        pos = f' style="object-position: {datos["posicion"]}"' if datos.get("posicion") else ""
+        carga = 'fetchpriority="high"' if prioridad else 'loading="lazy"'
+        return (f'<figure class="foto foto--{forma}"><img src="/assets/fotos/{clave}-1600.webp" '
+                f'srcset="/assets/fotos/{clave}-800.webp 800w, /assets/fotos/{clave}-1600.webp 1600w" sizes="{TAMANOS[forma]}" '
+                f'width="{w}" height="{h}" alt="{datos["alt"]}" {carga} decoding="async"{pos}></figure>')
     return (f'<figure class="foto foto--{forma} foto--pendiente" role="img" aria-label="Espacio para foto pendiente: {que}">'
             f'<figcaption class="foto-nota">{ico(I_CAM, 26, 1.4)}<strong>Foto pendiente</strong><span>{que}</span></figcaption></figure>')
 
@@ -247,7 +264,7 @@ inicio = f'''<div class="wrap portada">
 </div>
 <p class="portada-lugar">{ico(I_PIN, 18)}Quito, Ecuador</p>
 </div>
-{foto("retrato", "imagen principal con un trabajo real de Kairós Studio")}
+{foto("retrato", "imagen principal con un trabajo real de Kairós Studio", "portada", prioridad=True)}
 </div>
 
 <section class="diptico" aria-label="Elige tu recorrido">
@@ -280,9 +297,9 @@ inicio = f'''<div class="wrap portada">
 <a class="enlace-flecha" href="/proyectos">Ver todos los proyectos</a>
 </div>
 <div class="proyectos" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr))">
-{foto("retrato", "proyecto de marketing y redes")}
-{foto("retrato", "proyecto de fotografía comercial")}
-{foto("retrato", "sesión o cobertura de evento")}
+{foto("retrato", "proyecto de marketing y redes", "inicio-1")}
+{foto("retrato", "proyecto de fotografía comercial", "inicio-2")}
+{foto("retrato", "sesión o cobertura de evento", "inicio-3")}
 </div>
 </div>
 </section>
@@ -319,7 +336,7 @@ inicio = f'''<div class="wrap portada">
 
 # ---------- Para tu negocio ----------
 def servicio_html(s):
-    foto_html = foto("apaisada", s["foto"]) if s["foto"] else ""
+    foto_html = foto("apaisada", s["foto"], "servicio-" + s["id"]) if s["foto"] else ""
     return f'''<article class="servicio" id="{s['id']}" aria-labelledby="{s['id']}-titulo">
 <div class="servicio-titulo">
 <h2 id="{s['id']}-titulo" class="t-sub" style="font-size: clamp(30px, 3.2vw, 40px); line-height: 1.08">{s['nombre']}</h2>
@@ -406,7 +423,7 @@ momentos = f'''<section class="cabecera-pagina" aria-labelledby="momentos-titulo
 <p class="entrada">Fotografía y video para las fechas que quieres recordar tal como fueron: una sesión pensada para ti o la cobertura completa de tu celebración.</p>
 {nota("en el documento del proyecto, la línea de eventos aparece como «a futuro». Confirma que ya se puede reservar, qué tipos de sesión ofreces y cómo se entregan las fotos y videos.")}
 </div>
-{foto("alta", "sesión o celebración fotografiada por Kairós Studio")}
+{foto("alta", "sesión o celebración fotografiada por Kairós Studio", "momentos")}
 </div>
 </div>
 </section>
@@ -456,7 +473,7 @@ CATEGORIAS = [("marketing", "Marketing y redes"), ("fotografia", "Fotografía co
 
 def proyecto_pendiente(cat, etiqueta):
     return f'''<article class="proyecto" data-categoria="{cat}">
-{foto("apaisada", f"imagen del proyecto de {etiqueta.lower()}")}
+{foto("apaisada", f"imagen del proyecto de {etiqueta.lower()}", "proyecto-" + cat)}
 <p class="proyecto-cat">{etiqueta}</p>
 <h3 class="t-sub">[Nombre del proyecto]</h3>
 <dl>
@@ -503,7 +520,7 @@ sobre = f'''<section class="cabecera-pagina" aria-labelledby="sobre-titulo">
 <h1 id="sobre-titulo" class="t-pagina">Sobre Kairós Studio</h1>
 <p class="entrada">En griego, <em>kairós</em> es el momento oportuno: el instante exacto en que algo importante sucede. En marketing, es llegar con el mensaje correcto en el momento correcto. En una celebración, es capturar el instante que no se repite.</p>
 </div>
-{foto("cuadrada", "retrato o espacio de trabajo de Kairós Studio")}
+{foto("cuadrada", "retrato o espacio de trabajo de Kairós Studio", "sobre")}
 </div>
 </div>
 </section>
