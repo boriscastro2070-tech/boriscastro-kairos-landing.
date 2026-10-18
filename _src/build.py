@@ -79,7 +79,7 @@ def redes():
 
 MENU = [("inicio", "/", "Inicio"), ("negocio", "/negocio", "Para tu negocio"),
         ("momentos", "/momentos", "Para tus momentos"), ("proyectos", "/proyectos", "Proyectos"),
-        ("sobre", "/sobre", "Sobre Kairós")]
+        ("como", "/como-trabajamos", "Cómo trabajamos"), ("sobre", "/sobre", "Sobre Kairós")]
 
 def encabezado(activa):
     enlaces = "\n".join(f'<a class="menu-enlace" href="{h}"' + (' aria-current="page"' if k == activa else '') + f'>{t}</a>'
@@ -186,7 +186,7 @@ def pagina(ruta, titulo, descripcion, activa, cuerpo, extra_head=""):
 <link rel="stylesheet" href="/css/site.css">
 <script>
 document.documentElement.classList.add('js');
-(function(){{var m={{'#servicios':'/negocio','#proceso':'/sobre#proceso','#eventos':'/momentos','#portafolio':'/proyectos','#nosotros':'/sobre'}};function ir(){{var p=location.pathname;if((p==='/'||p==='/index.html'||p==='/index')&&m[location.hash]){{location.replace(m[location.hash]);}}}}ir();window.addEventListener('hashchange',ir);}})();
+(function(){{var m={{'#servicios':'/negocio','#proceso':'/como-trabajamos','#eventos':'/momentos','#portafolio':'/proyectos','#nosotros':'/sobre'}};function ir(){{var p=location.pathname;if((p==='/'||p==='/index.html'||p==='/index')&&m[location.hash]){{location.replace(m[location.hash]);}}else if((p==='/sobre'||p==='/sobre.html')&&location.hash==='#proceso'){{location.replace('/como-trabajamos');}}}}ir();window.addEventListener('hashchange',ir);}})();
 </script>
 <script src="/js/site.js" defer></script>
 {extra_head}
@@ -334,7 +334,7 @@ inicio = f'''<div class="wrap portada">
 {greca()}
 <h2 id="enfoque-titulo" class="t-seccion">El momento oportuno</h2>
 <p class="suave">En griego, <em>kairós</em> es el instante exacto en que algo importante sucede. Así entendemos nuestro trabajo.</p>
-<a class="enlace-flecha" href="/sobre">Conoce cómo trabajamos</a>
+<div class="botones"><a class="btn btn-principal" href="/como-trabajamos">Conoce cómo trabajamos</a></div>
 </div>
 <div>
 <blockquote>Entender primero qué necesitas y después decidir qué contar, cómo y en qué formato.</blockquote>
@@ -343,16 +343,6 @@ inicio = f'''<div class="wrap portada">
 <div><p class="etiqueta">En eventos</p><p>Capturar el instante que no se repite.</p></div>
 </div>
 </div>
-</div>
-</section>
-
-<section class="bloque" aria-labelledby="proceso-titulo">
-<div class="wrap">
-<div class="encabezado-fila">
-<h2 id="proceso-titulo" class="t-seccion">Cómo trabajamos</h2>
-<a class="enlace-flecha" href="/sobre#proceso">Ver el proceso completo</a>
-</div>
-{pasos_html()}
 </div>
 </section>
 
@@ -580,16 +570,6 @@ sobre = f'''<section class="cabecera-pagina" aria-labelledby="sobre-titulo">
 </div>
 </section>
 
-<section id="proceso" class="bloque" aria-labelledby="proceso2-titulo">
-<div class="wrap">
-<div class="pila" style="margin-bottom: clamp(32px, 4vw, 56px)">
-<h2 id="proceso2-titulo" class="t-seccion">Cómo trabajamos</h2>
-<p class="entrada suave">Cuatro pasos, igual para un negocio que para una sesión o un evento.</p>
-</div>
-{pasos_html()}
-</div>
-</section>
-
 <section class="fondo-papel bloque" aria-label="Misión y visión">
 <div class="wrap mv">
 <div class="pila">{greca()}<h2 class="t-sub">Misión</h2><p class="grande">Hacemos crecer marcas y capturamos los momentos que cuentan. Unimos estrategia digital, contenido, fotografía y video para que negocios y personas cuenten sus historias con intención, lleguen a quien deben llegar y conserven lo que no se repite.</p></div>
@@ -696,6 +676,26 @@ no_encontrada = f'''<section class="bloque">
 </div>
 </section>'''
 
+# ---------- Cómo trabajamos ----------
+como = f'''<section class="cabecera-pagina" aria-labelledby="como-titulo">
+<div class="wrap">
+{migas("Cómo trabajamos")}
+<div class="pila">
+<h1 id="como-titulo" class="t-pagina">Cómo trabajamos</h1>
+<p class="entrada">Entender primero qué necesitas y después decidir qué contar, cómo y en qué formato. Son cuatro pasos, igual para un negocio que para una sesión o un evento.</p>
+</div>
+</div>
+</section>
+
+<section id="proceso" class="fondo-blanco bloque" aria-labelledby="pasos-titulo">
+<div class="wrap">
+<h2 id="pasos-titulo" class="t-seccion" style="margin-bottom: clamp(32px, 4vw, 56px)">El proceso completo</h2>
+{pasos_html()}
+</div>
+</section>
+
+{llamada_contacto()}'''
+
 # =====================================================================
 PAGINAS = {
     "index.html": ("/", f"{NOMBRE} · Marketing digital, fotografía y video en Quito",
@@ -710,8 +710,11 @@ PAGINAS = {
     "proyectos.html": ("/proyectos", f"Proyectos · {NOMBRE}",
                        "Trabajos de Kairós Studio por categoría: qué necesitaba cada cliente, qué hicimos y qué entregamos.",
                        "proyectos", proyectos, ""),
-    "sobre.html": ("/sobre", f"Sobre nosotros y cómo trabajamos · {NOMBRE}",
-                   "Qué significa kairós, nuestro enfoque creativo y los cuatro pasos con los que trabajamos: consulta, propuesta, producción y entrega.",
+    "como-trabajamos.html": ("/como-trabajamos", f"Cómo trabajamos · {NOMBRE}",
+                   "Los cuatro pasos con los que trabajamos en Kairós Studio: consulta inicial, propuesta y alcance, producción, y revisión y entrega.",
+                   "como", como, ""),
+    "sobre.html": ("/sobre", f"Sobre nosotros · {NOMBRE}",
+                   "Qué significa kairós, nuestro enfoque creativo, misión y visión de Kairós Studio.",
                    "sobre", sobre, ""),
     "contacto.html": ("/contacto", f"Contacto por WhatsApp · {NOMBRE}",
                       "Escríbenos por WhatsApp para pedir una propuesta para tu negocio o consultar una fecha para tu sesión o evento en Quito.",

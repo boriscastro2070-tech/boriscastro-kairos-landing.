@@ -127,7 +127,7 @@ h1, h2, h3, h4 { margin: 0; font-family: var(--serif); font-weight: 500; letter-
 .boton-menu[aria-expanded="true"] .ico-abrir { display: none; }
 .boton-menu[aria-expanded="true"] .ico-cerrar { display: inline; }
 
-@media (max-width: 1000px) {
+@media (max-width: 1100px) {
   .js .boton-menu { display: inline-flex; }
   .js .menu { display: none; }
   .js .menu.abierto { display: flex; flex-direction: column; align-items: stretch; gap: 0; width: 100%; padding: 6px 0 8px; font-size: 18px; }

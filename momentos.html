@@ -23,7 +23,7 @@
 <link rel="stylesheet" href="/css/site.css">
 <script>
 document.documentElement.classList.add('js');
-(function(){var m={'#servicios':'/negocio','#proceso':'/sobre#proceso','#eventos':'/momentos','#portafolio':'/proyectos','#nosotros':'/sobre'};function ir(){var p=location.pathname;if((p==='/'||p==='/index.html'||p==='/index')&&m[location.hash]){location.replace(m[location.hash]);}}ir();window.addEventListener('hashchange',ir);})();
+(function(){var m={'#servicios':'/negocio','#proceso':'/como-trabajamos','#eventos':'/momentos','#portafolio':'/proyectos','#nosotros':'/sobre'};function ir(){var p=location.pathname;if((p==='/'||p==='/index.html'||p==='/index')&&m[location.hash]){location.replace(m[location.hash]);}else if((p==='/sobre'||p==='/sobre.html')&&location.hash==='#proceso'){location.replace('/como-trabajamos');}}ir();window.addEventListener('hashchange',ir);})();
 </script>
 <script src="/js/site.js" defer></script>
 
@@ -44,6 +44,7 @@ Menú
 <a class="menu-enlace" href="/negocio">Para tu negocio</a>
 <a class="menu-enlace" href="/momentos" aria-current="page">Para tus momentos</a>
 <a class="menu-enlace" href="/proyectos">Proyectos</a>
+<a class="menu-enlace" href="/como-trabajamos">Cómo trabajamos</a>
 <a class="menu-enlace" href="/sobre">Sobre Kairós</a>
 <a class="btn btn-oscuro btn-s" href="/contacto">Contacto</a>
 </nav>
@@ -116,6 +117,7 @@ Menú
 <li><a href="/negocio">Para tu negocio</a></li>
 <li><a href="/momentos">Para tus momentos</a></li>
 <li><a href="/proyectos">Proyectos</a></li>
+<li><a href="/como-trabajamos">Cómo trabajamos</a></li>
 <li><a href="/sobre">Sobre Kairós</a></li>
 <li><a href="/contacto">Contacto</a></li>
 </ul>

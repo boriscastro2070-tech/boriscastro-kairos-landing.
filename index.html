@@ -23,7 +23,7 @@
 <link rel="stylesheet" href="/css/site.css">
 <script>
 document.documentElement.classList.add('js');
-(function(){var m={'#servicios':'/negocio','#proceso':'/sobre#proceso','#eventos':'/momentos','#portafolio':'/proyectos','#nosotros':'/sobre'};function ir(){var p=location.pathname;if((p==='/'||p==='/index.html'||p==='/index')&&m[location.hash]){location.replace(m[location.hash]);}}ir();window.addEventListener('hashchange',ir);})();
+(function(){var m={'#servicios':'/negocio','#proceso':'/como-trabajamos','#eventos':'/momentos','#portafolio':'/proyectos','#nosotros':'/sobre'};function ir(){var p=location.pathname;if((p==='/'||p==='/index.html'||p==='/index')&&m[location.hash]){location.replace(m[location.hash]);}else if((p==='/sobre'||p==='/sobre.html')&&location.hash==='#proceso'){location.replace('/como-trabajamos');}}ir();window.addEventListener('hashchange',ir);})();
 </script>
 <script src="/js/site.js" defer></script>
 <script type="application/ld+json">
@@ -49,6 +49,7 @@ Menú
 <a class="menu-enlace" href="/negocio">Para tu negocio</a>
 <a class="menu-enlace" href="/momentos">Para tus momentos</a>
 <a class="menu-enlace" href="/proyectos">Proyectos</a>
+<a class="menu-enlace" href="/como-trabajamos">Cómo trabajamos</a>
 <a class="menu-enlace" href="/sobre">Sobre Kairós</a>
 <a class="btn btn-oscuro btn-s" href="/contacto">Contacto</a>
 </nav>
@@ -109,7 +110,7 @@ Menú
 <svg class="greca" viewBox="0 0 96 20" aria-hidden="true" focusable="false"><path d="M1 19V1h18v16H7V7h7v5M25 19V1h18v16H31V7h7v5M49 19V1h18v16H55V7h7v5M73 19V1h18v16H79V7h7v5" fill="none" stroke="currentColor" stroke-width="2"></path></svg>
 <h2 id="enfoque-titulo" class="t-seccion">El momento oportuno</h2>
 <p class="suave">En griego, <em>kairós</em> es el instante exacto en que algo importante sucede. Así entendemos nuestro trabajo.</p>
-<a class="enlace-flecha" href="/sobre">Conoce cómo trabajamos</a>
+<div class="botones"><a class="btn btn-principal" href="/como-trabajamos">Conoce cómo trabajamos</a></div>
 </div>
 <div>
 <blockquote>Entender primero qué necesitas y después decidir qué contar, cómo y en qué formato.</blockquote>
@@ -118,16 +119,6 @@ Menú
 <div><p class="etiqueta">En eventos</p><p>Capturar el instante que no se repite.</p></div>
 </div>
 </div>
-</div>
-</section>
-
-<section class="bloque" aria-labelledby="proceso-titulo">
-<div class="wrap">
-<div class="encabezado-fila">
-<h2 id="proceso-titulo" class="t-seccion">Cómo trabajamos</h2>
-<a class="enlace-flecha" href="/sobre#proceso">Ver el proceso completo</a>
-</div>
-<ol class="pasos"><li><h3>Consulta inicial</h3><p>Conversamos sobre tu objetivo o tu evento, los plazos y el material que ya tienes.</p></li><li><h3>Propuesta y alcance</h3><p>Te enviamos por escrito qué haremos, qué recibirás y en qué fechas.</p></li><li><h3>Producción</h3><p>Planificamos, fotografiamos, grabamos, diseñamos y escribimos según lo acordado.</p></li><li><h3>Revisión y entrega</h3><p>Revisas el material, hacemos los ajustes acordados y te entregamos los archivos finales.</p></li></ol>
 </div>
 </section>
 
@@ -158,6 +149,7 @@ Menú
 <li><a href="/negocio">Para tu negocio</a></li>
 <li><a href="/momentos">Para tus momentos</a></li>
 <li><a href="/proyectos">Proyectos</a></li>
+<li><a href="/como-trabajamos">Cómo trabajamos</a></li>
 <li><a href="/sobre">Sobre Kairós</a></li>
 <li><a href="/contacto">Contacto</a></li>
 </ul>
