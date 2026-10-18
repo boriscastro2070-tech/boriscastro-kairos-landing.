@@ -151,6 +151,7 @@ h1, h2, h3, h4 { margin: 0; font-family: var(--serif); font-weight: 500; letter-
 .foto--alta { aspect-ratio: 3 / 4; }
 .foto--cuadrada { aspect-ratio: 1 / 1; }
 .foto > img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.foto-etiqueta { position: absolute; left: 12px; bottom: 12px; padding: 4px 10px; border-radius: 3px; background: rgba(11, 30, 33, 0.78); color: #FFFFFF; font-size: 13px; line-height: 1.3; }
 .foto--pendiente {
   display: flex; align-items: center; justify-content: center; text-align: center; padding: 24px;
   background-color: var(--marco);

@@ -1,1 +1,17 @@
-{}
+{
+  "portada": {
+    "archivo": "perfume.png",
+    "alt": "Frasco de perfume ámbar sobre un bloque de piedra, junto a una rama de olivo, con luz cálida de tarde",
+    "ilustrativa": true,
+    "ancho": 1122,
+    "alto": 1402
+  },
+  "momentos": {
+    "archivo": "boda.png",
+    "alt": "Pareja de novios riendo en un jardín con flores al atardecer",
+    "ilustrativa": true,
+    "posicion": "58% 50%",
+    "ancho": 1448,
+    "alto": 1086
+  }
+}

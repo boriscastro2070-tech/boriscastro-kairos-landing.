@@ -7,7 +7,7 @@ REVISION = True muestra las notas y el aviso de la versión de revisión; ponlo 
 import os
 from urllib.parse import quote
 
-REVISION = True
+REVISION = False
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SITIO = "https://kairos-studio-ec.vercel.app"
 NOMBRE = "Kairós Studio"
@@ -57,9 +57,11 @@ def foto(forma, que, clave=None, prioridad=False):
         w, h = datos.get("ancho", 1600), datos.get("alto", 1200)
         pos = f' style="object-position: {datos["posicion"]}"' if datos.get("posicion") else ""
         carga = 'fetchpriority="high"' if prioridad else 'loading="lazy"'
+        # Imágenes de ambiente que no son trabajos de clientes: se marcan a la vista
+        etiqueta = '<figcaption class="foto-etiqueta">Imagen ilustrativa creada con IA</figcaption>' if datos.get("ilustrativa") else ''
         return (f'<figure class="foto foto--{forma}"><img src="/assets/fotos/{clave}-1600.webp" '
                 f'srcset="/assets/fotos/{clave}-800.webp 800w, /assets/fotos/{clave}-1600.webp 1600w" sizes="{TAMANOS[forma]}" '
-                f'width="{w}" height="{h}" alt="{datos["alt"]}" {carga} decoding="async"{pos}></figure>')
+                f'width="{w}" height="{h}" alt="{datos["alt"]}" {carga} decoding="async"{pos}>{etiqueta}</figure>')
     return (f'<figure class="foto foto--{forma} foto--pendiente" role="img" aria-label="Espacio para foto pendiente: {que}">'
             f'<figcaption class="foto-nota">{ico(I_CAM, 26, 1.4)}<strong>Foto pendiente</strong><span>{que}</span></figcaption></figure>')
 
