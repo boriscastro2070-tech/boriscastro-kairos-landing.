@@ -311,7 +311,7 @@ inicio = f'''<div class="wrap portada">
 <ul class="recorrido-lista">
 {"".join(f"<li>{s['nombre']}</li>" for s in SERVICIOS)}
 </ul>
-<div class="botones"><a class="btn btn-linea" href="/negocio">Ver servicios para negocios</a></div>
+<div class="botones"><a class="btn btn-principal" href="/negocio">Ver servicios para negocios</a></div>
 </div>
 <div class="recorrido recorrido--momentos sobre-jade">
 <p class="etiqueta">Para personas y familias</p>
@@ -322,7 +322,7 @@ inicio = f'''<div class="wrap portada">
 <li>Bodas, graduaciones y bautizos</li>
 <li>Conferencias y encuentros</li>
 </ul>
-<div class="botones"><a class="btn btn-linea" href="/momentos">Ver sesiones y eventos</a></div>
+<div class="botones"><a class="btn btn-principal" href="/momentos">Ver sesiones y eventos</a></div>
 </div>
 </section>
 
