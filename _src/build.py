@@ -59,8 +59,7 @@ def foto(forma, que, clave=None, prioridad=False):
         pos = f' style="object-position: {datos["posicion"]}"' if datos.get("posicion") else ""
         carga = 'fetchpriority="high"' if prioridad else 'loading="lazy"'
         # Imágenes de ambiente que no son trabajos de clientes: se marcan a la vista
-        texto_etiqueta = datos.get("etiqueta", "Imagen ilustrativa creada con IA")
-        etiqueta = f'<figcaption class="foto-etiqueta">{texto_etiqueta}</figcaption>' if datos.get("ilustrativa") else ''
+        etiqueta = '<figcaption class="foto-etiqueta">Imagen ilustrativa creada con IA</figcaption>' if datos.get("ilustrativa") else ''
         return (f'<figure class="foto foto--{forma}"><img src="/assets/fotos/{nombre}-1600.webp" '
                 f'srcset="/assets/fotos/{nombre}-800.webp 800w, /assets/fotos/{nombre}-1600.webp 1600w" sizes="{TAMANOS[forma]}" '
                 f'width="{w}" height="{h}" alt="{datos["alt"]}" {carga} decoding="async"{pos}>{etiqueta}</figure>')
@@ -528,7 +527,7 @@ def lista_proyectos():
 </div>
 </section>'''
     enlaces = {"marketing": "/negocio#marketing", "fotografia": "/negocio#fotografia", "video": "/negocio#video", "momentos": "/momentos"}
-    tarjetas = "".join(f'''<article class="proyecto">{foto("apaisada", e.lower(), "proyecto-" + c)}<h3 class="t-sub">{e}</h3>{('<p class="proyecto-ejemplo">' + FOTOS["proyecto-" + c]["ejemplo"] + '</p>') if FOTOS.get("proyecto-" + c, {}).get("ejemplo") else ''}<p><a class="enlace-flecha" href="{enlaces[c]}">Ver el servicio</a></p></article>''' for c, e in CATEGORIAS)
+    tarjetas = "".join(f'''<article class="proyecto">{foto("apaisada", e.lower(), "proyecto-" + c)}<h3 class="t-sub">{e}</h3><p><a class="enlace-flecha" href="{enlaces[c]}">Ver el servicio</a></p></article>''' for c, e in CATEGORIAS)
     galeria = f'''<h2 id="categorias-titulo" class="visually-hidden">Categorías</h2><div class="proyectos" style="margin-top: clamp(40px, 5vw, 64px)">{tarjetas}</div>''' if any(hay_foto("proyecto-" + c) for c, _ in CATEGORIAS) else ""
     return f'''<section class="fondo-blanco bloque" aria-labelledby="pronto-titulo">
 <div class="wrap"><div class="pila medida">

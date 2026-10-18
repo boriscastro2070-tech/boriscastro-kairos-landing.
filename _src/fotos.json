@@ -6,34 +6,39 @@
     "ancho": 1122,
     "alto": 1402
   },
-  "inicio-1": {
-    "archivo": "moda.png",
-    "alt": "Mujer con traje rojo caminando frente a un muro azul intenso, en una toma de moda editorial",
+  "momentos": {
+    "archivo": "boda.png",
+    "alt": "Pareja de novios riendo en un jardín con flores al atardecer",
     "ilustrativa": true,
-    "posicion": "50% 4%",
+    "posicion": "58% 50%",
+    "ancho": 1448,
+    "alto": 1086
+  },
+  "inicio-1": {
+    "archivo": "latas.png",
+    "alt": "Dos latas de bebida, azul y coral, con naranjas sobre fondo rosado",
+    "ilustrativa": true,
     "ancho": 1448,
     "alto": 1086
   },
   "inicio-2": {
-    "archivo": "tecnologia.png",
-    "alt": "Audífonos negros sobre un pedestal amarillo, con fondo naranja y sombras de hojas",
+    "archivo": "pan.png",
+    "alt": "Pan de masa madre y croissants sobre una mesa de madera con luz de ventana",
     "ilustrativa": true,
     "ancho": 1448,
     "alto": 1086
   },
   "inicio-3": {
-    "archivo": "conferencia.png",
-    "alt": "Ponente con micrófono de diadema hablando ante un auditorio iluminado en azul",
+    "archivo": "camara.png",
+    "alt": "Cámara de cine grabando a un músico en un escenario con luces violetas",
     "ilustrativa": true,
-    "posicion": "35% 50%",
     "ancho": 1448,
     "alto": 1086
   },
   "servicio-marketing": {
-    "archivo": "deporte.png",
-    "alt": "Corredor con camiseta amarilla neón atándose las zapatillas en una pista al atardecer",
+    "archivo": "latas.png",
+    "alt": "Dos latas de bebida, azul y coral, con naranjas sobre fondo rosado",
     "ilustrativa": true,
-    "posicion": "50% 0%",
     "ancho": 1448,
     "alto": 1086
   },
@@ -45,11 +50,12 @@
     "alto": 1086
   },
   "servicio-fotografia": {
-    "archivo": "cosmetica.png",
-    "alt": "Frascos de cosmética lila con tapas doradas sobre una piedra rodeada de agua y pétalos blancos",
+    "archivo": "perfume.png",
+    "alt": "Frasco de perfume ámbar sobre un bloque de piedra, junto a una rama de olivo",
     "ilustrativa": true,
-    "ancho": 1448,
-    "alto": 1086
+    "posicion": "50% 45%",
+    "ancho": 1122,
+    "alto": 1402
   },
   "servicio-video": {
     "archivo": "camara.png",
@@ -58,48 +64,32 @@
     "ancho": 1448,
     "alto": 1086
   },
-  "momentos": {
-    "archivo": "boda.png",
-    "alt": "Pareja de novios riendo en un jardín con flores al atardecer",
-    "ilustrativa": true,
-    "posicion": "58% 50%",
-    "ancho": 1448,
-    "alto": 1086
-  },
   "proyecto-marketing": {
     "archivo": "latas.png",
     "alt": "Dos latas de bebida, azul y coral, con naranjas sobre fondo rosado",
     "ilustrativa": true,
-    "etiqueta": "Proyecto de ejemplo · imagen creada con IA",
-    "ejemplo": "Proyecto de ejemplo: campaña para una marca de bebidas",
     "ancho": 1448,
     "alto": 1086
   },
   "proyecto-fotografia": {
-    "archivo": "interiores.png",
-    "alt": "Sala de un hotel con sofá curvo color marfil, piso de terracota y vista a palmeras y al mar",
+    "archivo": "pan.png",
+    "alt": "Pan de masa madre y croissants sobre una mesa de madera",
     "ilustrativa": true,
-    "etiqueta": "Proyecto de ejemplo · imagen creada con IA",
-    "ejemplo": "Proyecto de ejemplo: fotografía de espacios para un hotel",
     "ancho": 1448,
     "alto": 1086
   },
   "proyecto-video": {
-    "archivo": "gastronomia.png",
-    "alt": "Plato de vegetales asados sobre puré, con hierbas frescas, en la mesa de un restaurante",
+    "archivo": "camara.png",
+    "alt": "Cámara de cine grabando a un músico en un escenario",
     "ilustrativa": true,
-    "etiqueta": "Proyecto de ejemplo · imagen creada con IA",
-    "ejemplo": "Proyecto de ejemplo: contenido para un restaurante",
     "ancho": 1448,
     "alto": 1086
   },
   "proyecto-momentos": {
-    "archivo": "retrato.png",
-    "alt": "Mujer sonriente con blazer azul marino en una oficina luminosa con plantas",
+    "archivo": "boda.png",
+    "alt": "Pareja de novios riendo en un jardín al atardecer",
     "ilustrativa": true,
-    "etiqueta": "Proyecto de ejemplo · imagen creada con IA",
-    "ejemplo": "Proyecto de ejemplo: sesión de retrato profesional",
-    "posicion": "50% 12%",
+    "posicion": "55% 35%",
     "ancho": 1448,
     "alto": 1086
   },
