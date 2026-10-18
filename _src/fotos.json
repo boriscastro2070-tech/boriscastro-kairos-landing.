@@ -13,5 +13,92 @@
     "posicion": "58% 50%",
     "ancho": 1448,
     "alto": 1086
+  },
+  "inicio-1": {
+    "archivo": "latas.png",
+    "alt": "Dos latas de bebida, azul y coral, con naranjas sobre fondo rosado",
+    "ilustrativa": true,
+    "ancho": 1448,
+    "alto": 1086
+  },
+  "inicio-2": {
+    "archivo": "pan.png",
+    "alt": "Pan de masa madre y croissants sobre una mesa de madera con luz de ventana",
+    "ilustrativa": true,
+    "ancho": 1448,
+    "alto": 1086
+  },
+  "inicio-3": {
+    "archivo": "camara.png",
+    "alt": "Cámara de cine grabando a un músico en un escenario con luces violetas",
+    "ilustrativa": true,
+    "ancho": 1448,
+    "alto": 1086
+  },
+  "servicio-marketing": {
+    "archivo": "latas.png",
+    "alt": "Dos latas de bebida, azul y coral, con naranjas sobre fondo rosado",
+    "ilustrativa": true,
+    "ancho": 1448,
+    "alto": 1086
+  },
+  "servicio-redes": {
+    "archivo": "pan.png",
+    "alt": "Pan de masa madre y croissants sobre una mesa de madera con luz de ventana",
+    "ilustrativa": true,
+    "ancho": 1448,
+    "alto": 1086
+  },
+  "servicio-fotografia": {
+    "archivo": "perfume.png",
+    "alt": "Frasco de perfume ámbar sobre un bloque de piedra, junto a una rama de olivo",
+    "ilustrativa": true,
+    "posicion": "50% 45%",
+    "ancho": 1122,
+    "alto": 1402
+  },
+  "servicio-video": {
+    "archivo": "camara.png",
+    "alt": "Cámara de cine grabando a un músico en un escenario con luces violetas",
+    "ilustrativa": true,
+    "ancho": 1448,
+    "alto": 1086
+  },
+  "proyecto-marketing": {
+    "archivo": "latas.png",
+    "alt": "Dos latas de bebida, azul y coral, con naranjas sobre fondo rosado",
+    "ilustrativa": true,
+    "ancho": 1448,
+    "alto": 1086
+  },
+  "proyecto-fotografia": {
+    "archivo": "pan.png",
+    "alt": "Pan de masa madre y croissants sobre una mesa de madera",
+    "ilustrativa": true,
+    "ancho": 1448,
+    "alto": 1086
+  },
+  "proyecto-video": {
+    "archivo": "camara.png",
+    "alt": "Cámara de cine grabando a un músico en un escenario",
+    "ilustrativa": true,
+    "ancho": 1448,
+    "alto": 1086
+  },
+  "proyecto-momentos": {
+    "archivo": "boda.png",
+    "alt": "Pareja de novios riendo en un jardín al atardecer",
+    "ilustrativa": true,
+    "posicion": "55% 35%",
+    "ancho": 1448,
+    "alto": 1086
+  },
+  "sobre": {
+    "archivo": "camara.png",
+    "alt": "Cámara de cine con monitor durante una grabación en escenario",
+    "ilustrativa": true,
+    "posicion": "25% 50%",
+    "ancho": 1448,
+    "alto": 1086
   }
 }

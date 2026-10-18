@@ -53,14 +53,15 @@ TAMANOS = {"retrato": "(max-width: 820px) 92vw, 44vw", "alta": "(max-width: 820p
 def foto(forma, que, clave=None, prioridad=False):
     """Muestra la foto real asignada a `clave`; si no existe, un marco «Foto pendiente» claramente identificado."""
     datos = FOTOS.get(clave) if clave else None
-    if datos and os.path.exists(os.path.join(RAIZ, "assets", "fotos", f"{clave}-1600.webp")):
+    nombre = os.path.splitext(datos["archivo"])[0] if datos else None
+    if datos and os.path.exists(os.path.join(RAIZ, "assets", "fotos", f"{nombre}-1600.webp")):
         w, h = datos.get("ancho", 1600), datos.get("alto", 1200)
         pos = f' style="object-position: {datos["posicion"]}"' if datos.get("posicion") else ""
         carga = 'fetchpriority="high"' if prioridad else 'loading="lazy"'
         # Imágenes de ambiente que no son trabajos de clientes: se marcan a la vista
         etiqueta = '<figcaption class="foto-etiqueta">Imagen ilustrativa creada con IA</figcaption>' if datos.get("ilustrativa") else ''
-        return (f'<figure class="foto foto--{forma}"><img src="/assets/fotos/{clave}-1600.webp" '
-                f'srcset="/assets/fotos/{clave}-800.webp 800w, /assets/fotos/{clave}-1600.webp 1600w" sizes="{TAMANOS[forma]}" '
+        return (f'<figure class="foto foto--{forma}"><img src="/assets/fotos/{nombre}-1600.webp" '
+                f'srcset="/assets/fotos/{nombre}-800.webp 800w, /assets/fotos/{nombre}-1600.webp 1600w" sizes="{TAMANOS[forma]}" '
                 f'width="{w}" height="{h}" alt="{datos["alt"]}" {carga} decoding="async"{pos}>{etiqueta}</figure>')
     if not REVISION:
         return ""  # al publicar, los espacios sin foto real se ocultan
@@ -259,22 +260,31 @@ def pasos_html():
 
 
 def hay_foto(clave):
-    return clave in FOTOS and os.path.exists(os.path.join(RAIZ, "assets", "fotos", f"{clave}-1600.webp"))
+    return clave in FOTOS and os.path.exists(os.path.join(RAIZ, "assets", "fotos", os.path.splitext(FOTOS[clave]["archivo"])[0] + "-1600.webp"))
+
+INICIO_LINEAS = [("inicio-1", "Marketing y redes", "/negocio#marketing"),
+                 ("inicio-2", "Fotografía comercial", "/negocio#fotografia"),
+                 ("inicio-3", "Video y eventos", "/negocio#video")]
 
 def seccion_trabajos():
-    """Inicio · Trabajos: se muestra en revisión o cuando hay al menos una foto real de trabajo."""
-    if not REVISION and not any(hay_foto(f"inicio-{n}") for n in (1, 2, 3)):
+    """Inicio: fotos de trabajos reales («Trabajos») o, mientras sean ilustrativas, «Lo que hacemos»."""
+    claves = [k for k, _, _ in INICIO_LINEAS]
+    if not REVISION and not any(hay_foto(k) for k in claves):
         return ""
+    ilustrativas = all(FOTOS.get(k, {}).get("ilustrativa") for k in claves if hay_foto(k)) and any(hay_foto(k) for k in claves)
+    if ilustrativas:
+        titulo, texto, enlace = "Lo que hacemos", "Marketing, fotografía y video para marcas, y cobertura de tus celebraciones.", ("/negocio", "Ver servicios")
+    else:
+        titulo, texto, enlace = "Trabajos", "Cada proyecto explica qué necesitaba el cliente, qué hicimos y qué entregamos.", ("/proyectos", "Ver todos los proyectos")
+    figuras = "".join(f'''<div class="pila-s">{foto("apaisada", etiqueta.lower(), k)}<p class="proyecto-cat"><a href="{h}">{etiqueta}</a></p></div>''' for k, etiqueta, h in INICIO_LINEAS)
     return f'''<section class="bloque" aria-labelledby="trabajos-titulo">
 <div class="wrap">
 <div class="encabezado-fila">
-<div class="pila-s"><h2 id="trabajos-titulo" class="t-seccion">Trabajos</h2><p class="suave medida">Cada proyecto explica qué necesitaba el cliente, qué hicimos y qué entregamos.</p></div>
-<a class="enlace-flecha" href="/proyectos">Ver todos los proyectos</a>
+<div class="pila-s"><h2 id="trabajos-titulo" class="t-seccion">{titulo}</h2><p class="suave medida">{texto}</p></div>
+<a class="enlace-flecha" href="{enlace[0]}">{enlace[1]}</a>
 </div>
-<div class="proyectos" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr))">
-{foto("retrato", "proyecto de marketing y redes", "inicio-1")}
-{foto("retrato", "proyecto de fotografía comercial", "inicio-2")}
-{foto("retrato", "sesión o cobertura de evento", "inicio-3")}
+<div class="proyectos" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 32px 24px">
+{figuras}
 </div>
 </div>
 </section>'''
@@ -516,12 +526,17 @@ def lista_proyectos():
 </div>
 </div>
 </section>'''
+    enlaces = {"marketing": "/negocio#marketing", "fotografia": "/negocio#fotografia", "video": "/negocio#video", "momentos": "/momentos"}
+    tarjetas = "".join(f'''<article class="proyecto">{foto("apaisada", e.lower(), "proyecto-" + c)}<h3 class="t-sub">{e}</h3><p><a class="enlace-flecha" href="{enlaces[c]}">Ver el servicio</a></p></article>''' for c, e in CATEGORIAS)
+    galeria = f'''<h2 id="categorias-titulo" class="visually-hidden">Categorías</h2><div class="proyectos" style="margin-top: clamp(40px, 5vw, 64px)">{tarjetas}</div>''' if any(hay_foto("proyecto-" + c) for c, _ in CATEGORIAS) else ""
     return f'''<section class="fondo-blanco bloque" aria-labelledby="pronto-titulo">
-<div class="wrap pila medida">
+<div class="wrap"><div class="pila medida">
 {greca()}
 <h2 id="pronto-titulo" class="t-sub">Estamos reuniendo los primeros proyectos</h2>
 <p class="suave">Aquí verás cada trabajo con lo que necesitaba el cliente, lo que hicimos y lo que entregamos. Mientras tanto, puedes seguir a Kairós Studio en Instagram o escribirnos para conversar sobre tu proyecto.</p>
 <div class="botones"><a class="btn btn-principal" href="/contacto">Pedir una propuesta</a><a class="btn btn-linea" href="{IG}" {EXT}>Ver Instagram{NUEVA}</a></div>
+</div>
+{galeria}
 </div>
 </section>'''
 
