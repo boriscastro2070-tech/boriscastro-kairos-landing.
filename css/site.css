@@ -309,6 +309,9 @@ h1, h2, h3, h4 { margin: 0; font-family: var(--serif); font-weight: 500; letter-
 .mv p.grande { font-family: var(--serif); font-size: clamp(24px, 2.4vw, 30px); line-height: 1.3; }
 .enfoque { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; }
 .enfoque > div { border-top: 2px solid var(--petroleo); padding-top: 18px; }
+/* Con foto: la foto va arriba y la línea separa la foto del título */
+.enfoque > div:has(> .foto) { border-top: 0; padding-top: 0; }
+.enfoque > div > .foto + h3 { border-top: 2px solid var(--petroleo); padding-top: 18px; margin-top: 22px; }
 @media (max-width: 860px) { .mv, .enfoque { grid-template-columns: minmax(0, 1fr); } }
 
 /* ---------- Contacto ---------- */

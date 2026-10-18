@@ -102,5 +102,27 @@
     "posicion": "25% 50%",
     "ancho": 1448,
     "alto": 1086
+  },
+  "enfoque-entender": {
+    "archivo": "enfoque-entender.png",
+    "alt": "Mujer tomando notas en un cuaderno mientras escucha a un hombre que le explica algo en una mesa de madera",
+    "ilustrativa": true,
+    "posicion": "50% 30%",
+    "ancho": 1448,
+    "alto": 1086
+  },
+  "enfoque-intencion": {
+    "archivo": "enfoque-intencion.png",
+    "alt": "Manos ordenando fotos impresas, bocetos y muestras de color sobre una mesa, junto a una cámara",
+    "ilustrativa": true,
+    "ancho": 1448,
+    "alto": 1086
+  },
+  "enfoque-acompanar": {
+    "archivo": "enfoque-acompanar.png",
+    "alt": "Dos personas de espaldas revisando juntas una selección de fotos en una laptop",
+    "ilustrativa": true,
+    "ancho": 1448,
+    "alto": 1086
   }
 }

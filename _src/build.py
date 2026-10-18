@@ -573,9 +573,9 @@ sobre = f'''<section class="cabecera-pagina" aria-labelledby="sobre-titulo">
 <div class="wrap">
 <h2 id="enfoque2-titulo" class="t-seccion" style="margin-bottom: clamp(32px, 4vw, 56px)">Nuestro enfoque</h2>
 <div class="enfoque">
-<div class="pila-s"><h3 class="t-sub">Primero entender</h3><p class="suave">Antes de proponer, escuchamos: qué vendes o qué celebras, a quién quieres llegar y qué tienes hoy.</p></div>
-<div class="pila-s"><h3 class="t-sub">Contar con intención</h3><p class="suave">Estrategia, imagen y texto trabajan juntos. Cada pieza tiene un propósito y un lugar donde se va a usar.</p></div>
-<div class="pila-s"><h3 class="t-sub">Acompañar el proceso</h3><p class="suave">Te explicamos cada paso con claridad, revisamos contigo antes de entregar y te dejamos el material listo para usar.</p></div>
+<div class="pila-s">{foto("apaisada", "conversación con un cliente", "enfoque-entender")}<h3 class="t-sub">Primero entender</h3><p class="suave">Antes de proponer, escuchamos: qué vendes o qué celebras, a quién quieres llegar y qué tienes hoy.</p></div>
+<div class="pila-s">{foto("apaisada", "planificación visual de un proyecto", "enfoque-intencion")}<h3 class="t-sub">Contar con intención</h3><p class="suave">Estrategia, imagen y texto trabajan juntos. Cada pieza tiene un propósito y un lugar donde se va a usar.</p></div>
+<div class="pila-s">{foto("apaisada", "revisión del material junto al cliente", "enfoque-acompanar")}<h3 class="t-sub">Acompañar el proceso</h3><p class="suave">Te explicamos cada paso con claridad, revisamos contigo antes de entregar y te dejamos el material listo para usar.</p></div>
 </div>
 </div>
 </section>
