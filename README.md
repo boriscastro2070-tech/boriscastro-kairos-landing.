@@ -1,36 +1,45 @@
-# Kairós · Sitio web
+# Kairós Studio · Sitio web
 
-Sitio estático de **Kairós** — *Marcas que crecen, momentos que cuentan.*
-Publicado en https://kairos-studio-ec.vercel.app
+Estudio creativo en Quito — *Marcas que crecen, momentos que cuentan.*
+Producción: https://kairos-studio-ec.vercel.app (rama `main`).
 
 ## Páginas
 | URL | Archivo | Contenido |
 |---|---|---|
-| `/` | `index.html` | Portada, ¿Por qué kairós?, resúmenes de Servicios, Eventos y Portafolio, Misión y Visión (`/#nosotros`) |
-| `/servicios` | `servicios.html` | Los 8 servicios y «Cómo trabajamos» (`/servicios#proceso`) |
-| `/eventos` | `eventos.html` | Kairós Eventos (próximamente) y tipos de evento |
-| `/portafolio` | `portafolio.html` | Trabajos y proyectos |
-| — | `404.html` | Página de error con regreso a Inicio |
+| `/` | `index.html` | Lema, los dos recorridos (negocio / momentos), trabajos, enfoque, proceso y contacto |
+| `/negocio` | `negocio.html` | 4 servicios (necesidad → ayuda → posibles entregables) y dos formas de trabajar |
+| `/momentos` | `momentos.html` | Sesiones fotográficas, cobertura de celebraciones y qué incluye / qué no |
+| `/proyectos` | `proyectos.html` | Proyectos por categoría con filtros: cliente, necesidad, qué hicimos, entregables |
+| `/sobre` | `sobre.html` | Significado de kairós, enfoque, cómo trabajamos (`#proceso`), misión y visión |
+| `/contacto` | `contacto.html` | Asistentes que arman el mensaje de WhatsApp para negocio o para sesión/evento |
+| — | `404.html` | Página no encontrada |
 
-Todas comparten el mismo menú, la sección de contacto (WhatsApp + redes) y el pie de página.
-Los enlaces antiguos de la página única (`/#servicios`, `/#eventos`, `/#portafolio`, `/#proceso`) redirigen a su nueva página.
+Las direcciones anteriores (`/servicios`, `/eventos`, `/portafolio` y los `/#…` de la primera versión) redirigen a las nuevas.
 
-## Estructura
-- `css/site.css` — estilos compartidos (colores, tipografías, componentes).
-- `js/site.js` — menú desplegable en celular.
-- `assets/` — logos, favicon e imagen para compartir en redes.
-- `vercel.json` — URLs limpias (`/servicios` en lugar de `/servicios.html`) y caché de imágenes.
+## Cómo editar
+Los textos viven en `_src/build.py`. Después de cambiarlos:
 
-> El menú, el contacto y el pie se repiten en cada página: si cambias uno, cámbialo en los cinco archivos HTML.
+```
+python3 _src/build.py
+```
 
-## Redes conectadas
+Esto regenera todos los `.html` y `sitemap.xml`. No edites los `.html` a mano: el siguiente build los sobrescribe.
+
+- `REVISION = True` muestra el aviso superior y las notas «Pendiente de confirmar». **Cámbialo a `False` antes de publicar.**
+- Fotos: cada `foto(...)` dibuja un marco «Foto pendiente». Para usar una foto real, guárdala en `assets/` (WebP o JPG, de unos 1600 px de lado como máximo) y reemplaza la llamada por un `<img>` con `alt` descriptivo.
+- `css/site.css` contiene la paleta, la tipografía y los componentes. `js/site.js` contiene el menú en celular, los filtros y los mensajes de WhatsApp.
+
+## Datos confirmados
+- WhatsApp: 098 298 1089
 - Instagram: https://www.instagram.com/kairos.estudio.ec/
 - Facebook: https://www.facebook.com/profile.php?id=61595387390430
-- WhatsApp: 098 298 1089
 
-## Pendientes
-- Completar `[TU CORREO]` en la sección de contacto.
-- Sustituir los espacios `[FOTO DE PROYECTO]` y `[Cliente · Servicio]` del portafolio por trabajos reales.
+## Pendiente de contenido real
+- Fotos: portada, servicios, sesiones y «Sobre Kairós Studio».
+- Proyectos: nombre, cliente (con permiso), necesidad, intervención, entregables y, si existen, resultados medibles.
+- Confirmar que la línea de sesiones y eventos ya está disponible, qué sesiones ofreces y cómo entregas el material.
+- Correo electrónico y zona de cobertura fuera de Quito.
 
 ## Despliegue
-Sin comando de build: Vercel sirve los archivos tal cual. Cada `git push` a `main` publica una nueva versión.
+Sitio estático, sin build en Vercel (`_src/` y este README no se publican; ver `.vercelignore`).
+Un `git push` a `main` publica en producción; cualquier otra rama genera solo una vista previa.

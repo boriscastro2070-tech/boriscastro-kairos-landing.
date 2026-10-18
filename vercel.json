@@ -1,6 +1,11 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
+  "redirects": [
+    { "source": "/servicios", "destination": "/negocio", "permanent": true },
+    { "source": "/eventos", "destination": "/momentos", "permanent": true },
+    { "source": "/portafolio", "destination": "/proyectos", "permanent": true }
+  ],
   "headers": [
     { "source": "/assets/(.*)", "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }] }
   ]

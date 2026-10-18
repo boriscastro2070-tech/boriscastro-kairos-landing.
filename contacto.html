@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="es-EC">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contacto por WhatsApp · Kairós Studio</title>
+<meta name="description" content="Escríbenos por WhatsApp para pedir una propuesta para tu negocio o consultar una fecha para tu sesión o evento en Quito.">
+<link rel="canonical" href="https://kairos-studio-ec.vercel.app/contacto">
+<meta name="theme-color" content="#10292D">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_EC">
+<meta property="og:site_name" content="Kairós Studio">
+<meta property="og:url" content="https://kairos-studio-ec.vercel.app/contacto">
+<meta property="og:title" content="Contacto por WhatsApp · Kairós Studio">
+<meta property="og:description" content="Escríbenos por WhatsApp para pedir una propuesta para tu negocio o consultar una fecha para tu sesión o evento en Quito.">
+<meta property="og:image" content="https://kairos-studio-ec.vercel.app/assets/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="/assets/favicon.png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&amp;family=Jost:wght@400;500&amp;display=swap">
+<link rel="stylesheet" href="/css/site.css">
+<script>
+document.documentElement.classList.add('js');
+(function(){var m={'#servicios':'/negocio','#proceso':'/sobre#proceso','#eventos':'/momentos','#portafolio':'/proyectos','#nosotros':'/sobre'};function ir(){var p=location.pathname;if((p==='/'||p==='/index.html'||p==='/index')&&m[location.hash]){location.replace(m[location.hash]);}}ir();window.addEventListener('hashchange',ir);})();
+</script>
+<script src="/js/site.js" defer></script>
+
+</head>
+<body>
+<a class="skip-link" href="#contenido">Saltar al contenido</a>
+<header class="site-header">
+<p class="aviso-revision"><strong>Versión de revisión.</strong> Los espacios marcados como pendientes se completan con material real antes de publicar.</p>
+<div class="wrap cabecera">
+<a class="marca" href="/" aria-label="Kairós Studio, ir a Inicio"><img src="/assets/logo-petroleo.webp" alt="Kairós Studio" width="157" height="62"></a>
+<button class="boton-menu" type="button" aria-expanded="false" aria-controls="menu">
+<svg class="ico-abrir" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>
+<svg class="ico-cerrar" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18"></path></svg>
+Menú
+</button>
+<nav id="menu" class="menu" aria-label="Principal">
+<a class="menu-enlace" href="/">Inicio</a>
+<a class="menu-enlace" href="/negocio">Para tu negocio</a>
+<a class="menu-enlace" href="/momentos">Para tus momentos</a>
+<a class="menu-enlace" href="/proyectos">Proyectos</a>
+<a class="menu-enlace" href="/sobre">Sobre Kairós</a>
+<a class="btn btn-oscuro btn-s" href="/contacto" aria-current="page">Contacto</a>
+</nav>
+</div>
+</header>
+<main id="contenido">
+<section class="cabecera-pagina" aria-labelledby="contacto-titulo" style="padding-bottom: clamp(32px, 4vw, 56px)">
+<div class="wrap">
+<nav class="migas" aria-label="Ruta de navegación"><ol><li><a href="/">Inicio</a></li><li><span aria-current="page">Contacto</span></li></ol></nav>
+<div class="pila">
+<h1 id="contacto-titulo" class="t-pagina">Contacto</h1>
+<p class="entrada">La forma más rápida de hablar con nosotros es WhatsApp. Elige tu caso, completa unos datos y se abrirá WhatsApp con el mensaje listo para que lo envíes tú.</p>
+</div>
+</div>
+</section>
+
+<section class="bloque--corto" style="padding-top: 0" aria-label="Armar mensaje de WhatsApp">
+<div class="wrap contacto-grid">
+
+<div class="panel" id="negocio">
+<h2 class="t-sub">Para tu negocio</h2>
+<p class="suave">Cuéntanos qué servicio te interesa y qué quieres lograr.</p>
+<form data-whatsapp="negocio" novalidate>
+<div class="campo">
+<label for="n-servicio">Servicio de interés</label>
+<select id="n-servicio" name="servicio" aria-describedby="error-n-servicio" data-obligatorio="Elige un servicio o «Aún no lo sé»."><option value="">Elige una opción</option><option>Marketing digital</option><option>Gestión de redes y planificación de contenido</option><option>Fotografía comercial y de producto</option><option>Video para redes y campañas</option><option>Varios servicios</option><option>Aún no lo sé</option></select>
+<p id="error-n-servicio" class="error"></p>
+</div>
+<div class="campo">
+<label for="n-objetivo">¿Qué quieres lograr?</label>
+<p id="ayuda-n-objetivo" class="ayuda">Por ejemplo: lanzar un producto, vender más por Instagram, renovar tus fotos.</p>
+<textarea id="n-objetivo" name="objetivo" aria-describedby="ayuda-n-objetivo error-n-objetivo" data-obligatorio="Escribe en pocas palabras qué quieres lograr."></textarea>
+<p id="error-n-objetivo" class="error"></p>
+</div>
+<div class="campo">
+<label for="n-negocio">Nombre de tu negocio <span class="suave">(opcional)</span></label>
+<input id="n-negocio" name="negocio" type="text" autocomplete="organization">
+</div>
+<div class="pila-s"><p class="vista-titulo">Así se verá tu mensaje</p><p class="vista-previa" aria-live="polite"></p></div>
+<a class="btn btn-whatsapp abrir-whatsapp" href="https://wa.me/593982981089?text=Hola%2C%20Kair%C3%B3s%20Studio.%20Escribo%20por%20mi%20negocio.%0AServicio%20de%20inter%C3%A9s%3A%20%0ALo%20que%20quiero%20lograr%3A%20" target="_blank" rel="noopener noreferrer"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20.5l1.6-5.2A8.5 8.5 0 1 1 21 11.5z"></path></svg>Abrir WhatsApp con este mensaje<span class="visually-hidden"> (se abre en una pestaña nueva)</span></a>
+<p class="aclaracion">El mensaje no se envía desde esta página: lo revisas y lo envías tú en WhatsApp.</p>
+</form>
+</div>
+
+<div class="panel panel--momentos" id="momentos">
+<h2 class="t-sub">Para una sesión o evento</h2>
+<p class="suave">Cuéntanos el tipo de trabajo, la fecha y el lugar.</p>
+<form data-whatsapp="momentos" novalidate>
+<div class="campo">
+<label for="m-trabajo">Tipo de trabajo</label>
+<select id="m-trabajo" name="trabajo" aria-describedby="error-m-trabajo" data-obligatorio="Elige el tipo de sesión o evento."><option value="">Elige una opción</option><option>Sesión de pareja</option><option>Sesión de graduación</option><option>Sesión familiar</option><option>Sesión fotográfica</option><option>Boda</option><option>Graduación</option><option>Bautizo</option><option>Conferencia</option><option>Cobertura de un evento</option><option>Otro</option></select>
+<p id="error-m-trabajo" class="error"></p>
+</div>
+<div class="campo">
+<label for="m-fecha">Fecha</label>
+<p id="ayuda-m-fecha" class="ayuda">Si aún no es definitiva, escribe una aproximada.</p>
+<input id="m-fecha" name="fecha" type="text" aria-describedby="ayuda-m-fecha error-m-fecha" data-obligatorio="Escribe la fecha, aunque sea aproximada.">
+<p id="error-m-fecha" class="error"></p>
+</div>
+<div class="campo">
+<label for="m-lugar">Lugar</label>
+<p id="ayuda-m-lugar" class="ayuda">Ciudad, sector o nombre del lugar.</p>
+<input id="m-lugar" name="lugar" type="text" aria-describedby="ayuda-m-lugar error-m-lugar" data-obligatorio="Escribe dónde será.">
+<p id="error-m-lugar" class="error"></p>
+</div>
+<div class="campo">
+<label for="m-detalles">Detalles <span class="suave">(opcional)</span></label>
+<textarea id="m-detalles" name="detalles" placeholder="Cantidad aproximada de invitados, si prefieres foto, video o ambos…"></textarea>
+</div>
+<div class="pila-s"><p class="vista-titulo">Así se verá tu mensaje</p><p class="vista-previa" aria-live="polite"></p></div>
+<a class="btn btn-whatsapp abrir-whatsapp" href="https://wa.me/593982981089?text=Hola%2C%20Kair%C3%B3s%20Studio.%20Quiero%20consultar%20por%20una%20sesi%C3%B3n%20o%20evento.%0ATipo%20de%20trabajo%3A%20%0AFecha%3A%20%0ALugar%3A%20" target="_blank" rel="noopener noreferrer"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20.5l1.6-5.2A8.5 8.5 0 1 1 21 11.5z"></path></svg>Abrir WhatsApp con este mensaje<span class="visually-hidden"> (se abre en una pestaña nueva)</span></a>
+<p class="aclaracion">El mensaje no se envía desde esta página: lo revisas y lo envías tú en WhatsApp.</p>
+</form>
+</div>
+
+</div>
+</section>
+
+<section class="fondo-blanco bloque--corto" aria-label="Datos de contacto">
+<div class="wrap datos-directos">
+<div><h2>WhatsApp</h2><p><a href="https://wa.me/593982981089?text=Hola%2C%20Kair%C3%B3s%20Studio.%20Quiero%20hacer%20una%20consulta." target="_blank" rel="noopener noreferrer">098 298 1089<span class="visually-hidden"> (se abre en una pestaña nueva)</span></a></p></div>
+<div><h2>Redes</h2><ul class="redes">
+<li><a class="red" href="https://www.instagram.com/kairos.estudio.ec/" target="_blank" rel="noopener noreferrer"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.3" cy="6.7" r="0.6" fill="currentColor"></circle></svg><span>Instagram<small>@kairos.estudio.ec</small></span><span class="visually-hidden"> (se abre en una pestaña nueva)</span></a></li>
+<li><a class="red" href="https://www.facebook.com/profile.php?id=61595387390430" target="_blank" rel="noopener noreferrer"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M15 3h-2.5A4.5 4.5 0 0 0 8 7.5V10H5.5v4H8v7h4v-7h3l.5-4H12V7.8c0-.6.5-.8 1-.8h2z"></path></svg><span>Facebook</span><span class="visually-hidden"> (se abre en una pestaña nueva)</span></a></li>
+</ul></div>
+<div><h2>Ubicación</h2><p>Quito, Ecuador</p><p class="nota-revision"><strong>Pendiente de confirmar:</strong> correo electrónico de contacto y si atiendes fuera de Quito.</p></div>
+</div>
+</section>
+</main>
+<footer class="site-footer">
+<div class="wrap pie">
+<div class="pie-marca">
+<a href="/" aria-label="Kairós Studio, ir a Inicio"><img src="/assets/logo-marfil.webp" alt="Kairós Studio: marketing, fotografía, eventos" width="202" height="80"></a>
+<p>Marcas que crecen, momentos que cuentan.</p>
+</div>
+<nav aria-label="Páginas del sitio">
+<h2>Páginas</h2>
+<ul class="pie-enlaces">
+<li><a href="/">Inicio</a></li>
+<li><a href="/negocio">Para tu negocio</a></li>
+<li><a href="/momentos">Para tus momentos</a></li>
+<li><a href="/proyectos">Proyectos</a></li>
+<li><a href="/sobre">Sobre Kairós</a></li>
+<li><a href="/contacto">Contacto</a></li>
+</ul>
+</nav>
+<div>
+<h2>Síguenos</h2>
+<ul class="redes">
+<li><a class="red" href="https://www.instagram.com/kairos.estudio.ec/" target="_blank" rel="noopener noreferrer"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.3" cy="6.7" r="0.6" fill="currentColor"></circle></svg><span>Instagram<small>@kairos.estudio.ec</small></span><span class="visually-hidden"> (se abre en una pestaña nueva)</span></a></li>
+<li><a class="red" href="https://www.facebook.com/profile.php?id=61595387390430" target="_blank" rel="noopener noreferrer"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M15 3h-2.5A4.5 4.5 0 0 0 8 7.5V10H5.5v4H8v7h4v-7h3l.5-4H12V7.8c0-.6.5-.8 1-.8h2z"></path></svg><span>Facebook</span><span class="visually-hidden"> (se abre en una pestaña nueva)</span></a></li>
+</ul>
+</div>
+<div>
+<h2>Contacto</h2>
+<ul class="pie-enlaces">
+<li><a href="https://wa.me/593982981089?text=Hola%2C%20Kair%C3%B3s%20Studio.%20Quiero%20hacer%20una%20consulta." target="_blank" rel="noopener noreferrer">WhatsApp 098 298 1089<span class="visually-hidden"> (se abre en una pestaña nueva)</span></a></li>
+<li class="texto">Quito, Ecuador</li>
+</ul>
+</div>
+</div>
+<div class="wrap"><p class="pie-final">© 2026 Kairós Studio. Marcas que crecen, momentos que cuentan.</p></div>
+</footer>
+</body>
+</html>
