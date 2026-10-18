@@ -311,7 +311,19 @@ h1, h2, h3, h4 { margin: 0; font-family: var(--serif); font-weight: 500; letter-
 .enfoque > div { border-top: 2px solid var(--petroleo); padding-top: 18px; }
 /* Con foto: la foto va arriba y la línea separa la foto del título */
 .enfoque > div:has(> .foto) { border-top: 0; padding-top: 0; }
-.enfoque > div > .foto + h3 { border-top: 2px solid var(--petroleo); padding-top: 18px; margin-top: 22px; }
+/* «Nuestro enfoque» con foto al lado del texto, intercalada: derecha, izquierda, derecha */
+.enfoque--alterno { display: flex; flex-direction: column; gap: clamp(40px, 5vw, 56px); max-width: 900px; }
+.enfoque--alterno > div { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 300px); gap: 20px 48px; align-items: center; }
+.enfoque--alterno > div > * { margin-top: 0; }
+.enfoque--alterno > div > .foto { order: 2; }
+.enfoque--alterno > div:nth-child(even) { grid-template-columns: minmax(0, 300px) minmax(0, 1fr); }
+.enfoque--alterno > div:nth-child(even) > .foto { order: 0; }
+.enfoque-texto { border-top: 2px solid var(--petroleo); padding-top: 18px; display: flex; flex-direction: column; gap: 10px; }
+.enfoque-texto h3, .enfoque-texto p { margin: 0; }
+@media (max-width: 700px) {
+  .enfoque--alterno > div, .enfoque--alterno > div:nth-child(even) { grid-template-columns: minmax(0, 1fr); }
+  .enfoque--alterno > div > .foto, .enfoque--alterno > div:nth-child(even) > .foto { order: 0; width: 100%; max-width: 300px; }
+}
 @media (max-width: 860px) { .mv, .enfoque { grid-template-columns: minmax(0, 1fr); } }
 
 /* ---------- Contacto ---------- */
