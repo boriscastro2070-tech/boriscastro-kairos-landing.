@@ -77,7 +77,7 @@ Menú
 </button>
 <nav id="menu" class="menu" aria-label="Principal">
 {enlaces}
-<a class="btn btn-acento btn-s" href="/contacto"{contacto_actual}>Contacto</a>
+<a class="btn btn-oscuro btn-s" href="/contacto"{contacto_actual}>Contacto</a>
 </nav>
 </div>
 </header>'''
@@ -242,7 +242,7 @@ inicio = f'''<div class="wrap portada">
 <h1 class="t-portada">Marcas que crecen, momentos que cuentan.</h1>
 <p class="entrada">Somos un estudio creativo en Quito. Ayudamos a negocios a comunicar mejor con marketing digital, redes, fotografía y video, y acompañamos a personas en sus sesiones y celebraciones.</p>
 <div class="botones">
-<a class="btn btn-acento" href="/contacto">Pedir una propuesta</a>
+<a class="btn btn-principal" href="/contacto">Pedir una propuesta</a>
 <a class="btn btn-linea" href="/proyectos">Ver proyectos</a>
 </div>
 <p class="portada-lugar">{ico(I_PIN, 18)}Quito, Ecuador</p>
@@ -258,7 +258,7 @@ inicio = f'''<div class="wrap portada">
 <ul class="recorrido-lista">
 {"".join(f"<li>{s['nombre']}</li>" for s in SERVICIOS)}
 </ul>
-<div class="botones"><a class="btn btn-acento" href="/negocio">Ver servicios para negocios</a></div>
+<div class="botones"><a class="btn btn-linea" href="/negocio">Ver servicios para negocios</a></div>
 </div>
 <div class="recorrido recorrido--momentos sobre-jade">
 <p class="etiqueta">Para personas y familias</p>
@@ -269,7 +269,7 @@ inicio = f'''<div class="wrap portada">
 <li>Bodas, graduaciones y bautizos</li>
 <li>Conferencias y encuentros</li>
 </ul>
-<div class="botones"><a class="btn btn-claro" href="/momentos">Ver sesiones y eventos</a></div>
+<div class="botones"><a class="btn btn-linea" href="/momentos">Ver sesiones y eventos</a></div>
 </div>
 </section>
 
@@ -365,7 +365,7 @@ negocio = f'''<section class="cabecera-pagina" aria-labelledby="negocio-titulo">
 <p class="entrada suave">Puedes contratar un servicio por separado o combinarlos. El alcance, la cantidad de piezas y los plazos se definen contigo en la propuesta.</p>
 </div>
 <div class="formas">
-<div class="forma forma--puntual">
+<div class="forma">
 <p class="etiqueta">Proyecto puntual</p>
 <h3 class="t-sub">Para un objetivo concreto, con inicio y cierre</h3>
 <p class="suave">Ideal cuando necesitas resolver algo específico en una fecha determinada.</p>
@@ -389,10 +389,10 @@ negocio = f'''<section class="cabecera-pagina" aria-labelledby="negocio-titulo">
 </div>
 </section>
 
-<section class="sobre-atardecer bloque--corto" aria-label="Pedir una propuesta">
+<section class="sobre-jade bloque--corto" aria-label="Pedir una propuesta">
 <div class="wrap encabezado-fila" style="margin-bottom: 0">
 <p class="t-sub" style="font-family: var(--serif); max-width: 22em">Cuéntanos qué servicio te interesa y qué quieres lograr. Te respondemos con una propuesta.</p>
-<a class="btn btn-claro" href="/contacto#negocio">{ico(I_WA, 20, 1.8)}Armar mi mensaje para WhatsApp</a>
+<a class="btn btn-principal" href="/contacto#negocio">{ico(I_WA, 20, 1.8)}Armar mi mensaje para WhatsApp</a>
 </div>
 </section>'''
 
@@ -443,10 +443,10 @@ momentos = f'''<section class="cabecera-pagina" aria-labelledby="momentos-titulo
 </div>
 </section>
 
-<section class="sobre-atardecer bloque--corto" aria-label="Consultar una fecha">
+<section class="sobre-jade bloque--corto" aria-label="Consultar una fecha">
 <div class="wrap encabezado-fila" style="margin-bottom: 0">
 <p class="t-sub" style="font-family: var(--serif); max-width: 22em">Cuéntanos el tipo de sesión o evento, la fecha y el lugar, y te confirmamos disponibilidad.</p>
-<a class="btn btn-claro" href="/contacto#momentos">{ico(I_WA, 20, 1.8)}Armar mi mensaje para WhatsApp</a>
+<a class="btn btn-principal" href="/contacto#momentos">{ico(I_WA, 20, 1.8)}Armar mi mensaje para WhatsApp</a>
 </div>
 </section>'''
 
@@ -578,7 +578,7 @@ contacto = f'''<section class="cabecera-pagina" aria-labelledby="contacto-titulo
 <input id="n-negocio" name="negocio" type="text" autocomplete="organization">
 </div>
 <div class="pila-s"><p class="vista-titulo">Así se verá tu mensaje</p><p class="vista-previa" aria-live="polite"></p></div>
-<a class="btn btn-acento abrir-whatsapp" href="{WA_NEGOCIO}" {EXT}>{ico(I_WA, 20, 1.8)}Abrir WhatsApp con este mensaje{NUEVA}</a>
+<a class="btn btn-principal abrir-whatsapp" href="{WA_NEGOCIO}" {EXT}>{ico(I_WA, 20, 1.8)}Abrir WhatsApp con este mensaje{NUEVA}</a>
 <p class="aclaracion">El mensaje no se envía desde esta página: lo revisas y lo envías tú en WhatsApp.</p>
 </form>
 </div>
@@ -609,7 +609,7 @@ contacto = f'''<section class="cabecera-pagina" aria-labelledby="contacto-titulo
 <textarea id="m-detalles" name="detalles" placeholder="Cantidad aproximada de invitados, si prefieres foto, video o ambos…"></textarea>
 </div>
 <div class="pila-s"><p class="vista-titulo">Así se verá tu mensaje</p><p class="vista-previa" aria-live="polite"></p></div>
-<a class="btn btn-acento abrir-whatsapp" href="{WA_MOMENTOS}" {EXT}>{ico(I_WA, 20, 1.8)}Abrir WhatsApp con este mensaje{NUEVA}</a>
+<a class="btn btn-principal abrir-whatsapp" href="{WA_MOMENTOS}" {EXT}>{ico(I_WA, 20, 1.8)}Abrir WhatsApp con este mensaje{NUEVA}</a>
 <p class="aclaracion">El mensaje no se envía desde esta página: lo revisas y lo envías tú en WhatsApp.</p>
 </form>
 </div>
@@ -631,7 +631,7 @@ no_encontrada = f'''<section class="bloque">
 {greca()}
 <h1 class="t-pagina">No encontramos esta página</h1>
 <p class="entrada suave">Puede que la dirección haya cambiado. Desde aquí puedes volver al inicio o ir directo a lo que buscas.</p>
-<div class="botones"><a class="btn btn-acento" href="/">Volver a Inicio</a><a class="btn btn-linea" href="/negocio">Para tu negocio</a><a class="btn btn-linea" href="/momentos">Para tus momentos</a></div>
+<div class="botones"><a class="btn btn-oscuro" href="/">Volver a Inicio</a><a class="btn btn-linea" href="/negocio">Para tu negocio</a><a class="btn btn-linea" href="/momentos">Para tus momentos</a></div>
 </div>
 </section>'''
 
