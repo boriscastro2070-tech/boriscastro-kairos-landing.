@@ -294,6 +294,7 @@ h1, h2, h3, h4 { margin: 0; font-family: var(--serif); font-weight: 500; letter-
 .proyectos { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 56px 40px; }
 .proyecto { display: flex; flex-direction: column; gap: 18px; }
 .proyecto[hidden] { display: none; }
+.proyecto-ejemplo { font-size: 15px; color: var(--tinta-suave); margin-top: -6px; }
 .proyecto-cat { font-size: 14px; font-weight: 500; color: var(--jade); }
 .proyecto dl { margin: 0; display: grid; grid-template-columns: minmax(0, 1fr); gap: 0; }
 .proyecto dl > div { display: grid; grid-template-columns: 9.5em minmax(0, 1fr); gap: 16px; padding: 12px 0; border-top: 1px solid var(--linea); }
