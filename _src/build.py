@@ -62,6 +62,8 @@ def foto(forma, que, clave=None, prioridad=False):
         return (f'<figure class="foto foto--{forma}"><img src="/assets/fotos/{clave}-1600.webp" '
                 f'srcset="/assets/fotos/{clave}-800.webp 800w, /assets/fotos/{clave}-1600.webp 1600w" sizes="{TAMANOS[forma]}" '
                 f'width="{w}" height="{h}" alt="{datos["alt"]}" {carga} decoding="async"{pos}>{etiqueta}</figure>')
+    if not REVISION:
+        return ""  # al publicar, los espacios sin foto real se ocultan
     return (f'<figure class="foto foto--{forma} foto--pendiente" role="img" aria-label="Espacio para foto pendiente: {que}">'
             f'<figcaption class="foto-nota">{ico(I_CAM, 26, 1.4)}<strong>Foto pendiente</strong><span>{que}</span></figcaption></figure>')
 
@@ -255,6 +257,28 @@ PASOS = [("Consulta inicial", "Conversamos sobre tu objetivo o tu evento, los pl
 def pasos_html():
     return '<ol class="pasos">' + "".join(f'<li><h3>{t}</h3><p>{d}</p></li>' for t, d in PASOS) + '</ol>'
 
+
+def hay_foto(clave):
+    return clave in FOTOS and os.path.exists(os.path.join(RAIZ, "assets", "fotos", f"{clave}-1600.webp"))
+
+def seccion_trabajos():
+    """Inicio · Trabajos: se muestra en revisión o cuando hay al menos una foto real de trabajo."""
+    if not REVISION and not any(hay_foto(f"inicio-{n}") for n in (1, 2, 3)):
+        return ""
+    return f'''<section class="bloque" aria-labelledby="trabajos-titulo">
+<div class="wrap">
+<div class="encabezado-fila">
+<div class="pila-s"><h2 id="trabajos-titulo" class="t-seccion">Trabajos</h2><p class="suave medida">Cada proyecto explica qué necesitaba el cliente, qué hicimos y qué entregamos.</p></div>
+<a class="enlace-flecha" href="/proyectos">Ver todos los proyectos</a>
+</div>
+<div class="proyectos" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr))">
+{foto("retrato", "proyecto de marketing y redes", "inicio-1")}
+{foto("retrato", "proyecto de fotografía comercial", "inicio-2")}
+{foto("retrato", "sesión o cobertura de evento", "inicio-3")}
+</div>
+</div>
+</section>'''
+
 # ---------- Inicio ----------
 inicio = f'''<div class="wrap portada">
 <div class="portada-texto">
@@ -292,19 +316,7 @@ inicio = f'''<div class="wrap portada">
 </div>
 </section>
 
-<section class="bloque" aria-labelledby="trabajos-titulo">
-<div class="wrap">
-<div class="encabezado-fila">
-<div class="pila-s"><h2 id="trabajos-titulo" class="t-seccion">Trabajos</h2><p class="suave medida">Cada proyecto explica qué necesitaba el cliente, qué hicimos y qué entregamos.</p></div>
-<a class="enlace-flecha" href="/proyectos">Ver todos los proyectos</a>
-</div>
-<div class="proyectos" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr))">
-{foto("retrato", "proyecto de marketing y redes", "inicio-1")}
-{foto("retrato", "proyecto de fotografía comercial", "inicio-2")}
-{foto("retrato", "sesión o cobertura de evento", "inicio-3")}
-</div>
-</div>
-</section>
+{seccion_trabajos()}
 
 <section class="bloque fondo-papel" aria-labelledby="enfoque-titulo">
 <div class="wrap significado">
@@ -486,18 +498,12 @@ def proyecto_pendiente(cat, etiqueta):
 </dl>
 </article>'''
 
-proyectos = f'''<section class="cabecera-pagina" aria-labelledby="proyectos-titulo">
-<div class="wrap">
-{migas("Proyectos")}
-<div class="pila">
-<h1 id="proyectos-titulo" class="t-pagina">Proyectos</h1>
-<p class="entrada">Cada proyecto muestra qué necesitaba el cliente, qué hicimos y qué entregamos. Los resultados aparecen solo cuando hay datos reales que los respalden.</p>
-{nota("aún no hay proyectos publicados. Cada ficha de abajo es un espacio reservado para un trabajo real, con sus fotos, la autorización del cliente y, si existen, resultados medibles.")}
-</div>
-</div>
-</section>
 
-<section class="fondo-blanco bloque" aria-labelledby="lista-titulo">
+PROYECTOS_REALES = []  # Cuando haya proyectos reales con permiso del cliente, se agregan aquí.
+
+def lista_proyectos():
+    if REVISION or PROYECTOS_REALES:
+        return f'''<section class="fondo-blanco bloque" aria-labelledby="lista-titulo">
 <div class="wrap">
 <h2 id="lista-titulo" class="visually-hidden">Lista de proyectos</h2>
 <div class="filtros" role="group" aria-label="Filtrar proyectos por categoría">
@@ -509,7 +515,28 @@ proyectos = f'''<section class="cabecera-pagina" aria-labelledby="proyectos-titu
 {"".join(proyecto_pendiente(c, e) for c, e in CATEGORIAS)}
 </div>
 </div>
+</section>'''
+    return f'''<section class="fondo-blanco bloque" aria-labelledby="pronto-titulo">
+<div class="wrap pila medida">
+{greca()}
+<h2 id="pronto-titulo" class="t-sub">Estamos reuniendo los primeros proyectos</h2>
+<p class="suave">Aquí verás cada trabajo con lo que necesitaba el cliente, lo que hicimos y lo que entregamos. Mientras tanto, puedes seguir a Kairós Studio en Instagram o escribirnos para conversar sobre tu proyecto.</p>
+<div class="botones"><a class="btn btn-principal" href="/contacto">Pedir una propuesta</a><a class="btn btn-linea" href="{IG}" {EXT}>Ver Instagram{NUEVA}</a></div>
+</div>
+</section>'''
+
+proyectos = f'''<section class="cabecera-pagina" aria-labelledby="proyectos-titulo">
+<div class="wrap">
+{migas("Proyectos")}
+<div class="pila">
+<h1 id="proyectos-titulo" class="t-pagina">Proyectos</h1>
+<p class="entrada">Cada proyecto muestra qué necesitaba el cliente, qué hicimos y qué entregamos. Los resultados aparecen solo cuando hay datos reales que los respalden.</p>
+{nota("aún no hay proyectos publicados. Cada ficha de abajo es un espacio reservado para un trabajo real, con sus fotos, la autorización del cliente y, si existen, resultados medibles.")}
+</div>
+</div>
 </section>
+
+{lista_proyectos()}
 
 {llamada_contacto()}'''
 
